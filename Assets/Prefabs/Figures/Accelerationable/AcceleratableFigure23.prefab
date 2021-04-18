@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5174282012614634917}
   - component: {fileID: 5517262102032010596}
   - component: {fileID: 1350790573723679266}
+  - component: {fileID: 6940706164760797711}
   m_Layer: 0
   m_Name: AcceleratableFigure23
   m_TagString: Untagged
@@ -88,6 +89,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &6940706164760797711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174282012614634916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632f15c0d60871040b62b214e28b983c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedOfFigure: 4
 --- !u!1001 &319019524229642026
 PrefabInstance:
   m_ObjectHideFlags: 0

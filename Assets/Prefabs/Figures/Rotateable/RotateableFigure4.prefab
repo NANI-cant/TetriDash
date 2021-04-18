@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4872639136087155576}
   - component: {fileID: -5990461672873498932}
+  - component: {fileID: -7200529068033698142}
   m_Layer: 0
   m_Name: RotateableFigure4
   m_TagString: Untagged
@@ -46,6 +47,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationPoint: {fileID: 7290611221969553946}
   timeBetweenRotations: 2
+--- !u!114 &-7200529068033698142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4872639136087155577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632f15c0d60871040b62b214e28b983c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedOfFigure: 4
 --- !u!1 &7163091485963715409
 GameObject:
   m_ObjectHideFlags: 0

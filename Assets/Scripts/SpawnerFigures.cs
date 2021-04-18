@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class SpawnerFigures : MonoBehaviour
 {
-    //public float figurePosition = transform.position.y;
-    public GameObject[] templates;
-    private GameObject randomFigure;
-    // Start is called before the first frame update
+    [SerializeField] private GameObject[] templates;
+    [SerializeField] private float timeBetweenSpawns;
+    private GameObject currentFigure;
+
     void Start()
     {
         StartCoroutine(Spawner());
     }
-  
 
     private IEnumerator Spawner()
     {
         for(int i = 0; i < 100; i++)
         {
-            randomFigure = templates[Random.Range(0, templates.Length)];
-            Instantiate(randomFigure, new Vector3(Random.Range(-7,7), transform.position.y, 0), Quaternion.identity);
-            yield return new WaitForSeconds(5);
+            int randomX = Random.Range(-8,9);
+            currentFigure = templates[Random.Range(0, templates.Length)];
+            Instantiate(currentFigure, new Vector3(randomX, transform.position.y, 0), Quaternion.identity);
+            yield return new WaitForSeconds(timeBetweenSpawns);
         }
        
     }

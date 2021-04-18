@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5779051989973393219}
   - component: {fileID: 8525959786117504296}
   - component: {fileID: 5965426715112156541}
+  - component: {fileID: 1585632118084345195}
   m_Layer: 0
   m_Name: TeleportableFigure19
   m_TagString: Untagged
@@ -74,6 +75,19 @@ EdgeCollider2D:
   - {x: 0.5, y: -0.5}
   - {x: 0.5, y: 1.5}
   - {x: -0.5, y: 1.5}
+--- !u!114 &1585632118084345195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5779051989973393218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632f15c0d60871040b62b214e28b983c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedOfFigure: 4
 --- !u!1001 &1409782439607879116
 PrefabInstance:
   m_ObjectHideFlags: 0

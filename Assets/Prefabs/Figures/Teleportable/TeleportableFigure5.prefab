@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7263455413042245213}
   - component: {fileID: 8039774724324331164}
   - component: {fileID: -8445242162739057940}
+  - component: {fileID: 245784075550938752}
   m_Layer: 0
   m_Name: TeleportableFigure5
   m_TagString: Untagged
@@ -75,6 +76,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenTeleports: 5
+--- !u!114 &245784075550938752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7263455413042245212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632f15c0d60871040b62b214e28b983c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedOfFigure: 4
 --- !u!1001 &319821311999212594
 PrefabInstance:
   m_ObjectHideFlags: 0

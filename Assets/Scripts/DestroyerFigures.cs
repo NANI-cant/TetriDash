@@ -6,6 +6,8 @@ public class DestroyerFigures : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(other.gameObject);
+        if(other.gameObject.GetComponent<FigureMover>()!=null){
+            Destroy(other.gameObject);
+        }
     }
 }

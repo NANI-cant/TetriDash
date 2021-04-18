@@ -6,14 +6,12 @@ public class FigureMover : MonoBehaviour
 {
     public float SpeedOfFigure;
     private Transform _transform;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _transform = transform;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         _transform.Translate(Vector2.down * SpeedOfFigure * Time.deltaTime); 
     }

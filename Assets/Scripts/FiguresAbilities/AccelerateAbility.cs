@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(FigureLifetime))]
+[RequireComponent(typeof(FigureMover))]
 public class AccelerateAbility : MonoBehaviour
 {
     [SerializeField] private float acceleration;
     [SerializeField] private float minTimeToAcceleration;
     [SerializeField] private float maxTimeToAcceleration;
-    private FigureLifetime _figureLifeTime;
+    private FigureMover _figureMover;
     private float remainingTimeToAcceleration;
     private bool isAccelerate = false;
 
     private void Start(){
-        _figureLifeTime = GetComponent<FigureLifetime>();
+        _figureMover = GetComponent<FigureMover>();
         remainingTimeToAcceleration = Random.Range(minTimeToAcceleration,maxTimeToAcceleration);
     }
 
@@ -28,7 +28,7 @@ public class AccelerateAbility : MonoBehaviour
     }
     
     private void Accelerate(){
-        _figureLifeTime.speed+=acceleration;
+        _figureMover.SpeedOfFigure+=acceleration;
         isAccelerate = true;
     }
 }
