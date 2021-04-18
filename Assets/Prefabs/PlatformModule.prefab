@@ -99,7 +99,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 3286163911610860551, guid: 15b6cb890339c9649b37f896131b1d1f,
     type: 3}
   m_Color: {r: 0.8784314, g: 0.8784314, b: 0.8784314, a: 1}
@@ -181,7 +181,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 3286163911610860551, guid: d791f5205d8013f49bddf7409e3681ed,
     type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
@@ -327,7 +327,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 3286163911610860551, guid: a26c88f2b8134e44687397e1d50cf5ba,
     type: 3}
   m_Color: {r: 0.8784314, g: 0.8784314, b: 0.8784314, a: 1}
@@ -385,6 +385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5512632fc75993741b5be10217dca346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 5
   leftPoint: {fileID: 374543728210680572}
   rightPoint: {fileID: 4716464903922308095}
