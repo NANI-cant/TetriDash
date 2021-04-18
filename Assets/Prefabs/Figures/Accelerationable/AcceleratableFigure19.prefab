@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6014276714375832397}
   - component: {fileID: 961721613637604363}
   - component: {fileID: 6236507511512231305}
+  - component: {fileID: -1794944462714404633}
   m_Layer: 0
   m_Name: AcceleratableFigure19
   m_TagString: Untagged
@@ -102,6 +103,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedOfFigure: 4
+--- !u!114 &-1794944462714404633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6352607081199502221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce310539ef8993f4e92a2c25d2b3b4c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acceleration: 4
+  minTimeToAcceleration: 3
+  maxTimeToAcceleration: 7
 --- !u!1001 &1984718516901550339
 PrefabInstance:
   m_ObjectHideFlags: 0

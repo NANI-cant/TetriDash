@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 567757657359793484}
   - component: {fileID: 1103291053}
   - component: {fileID: 2726617348330671474}
-  - component: {fileID: 5334113557886977347}
   - component: {fileID: 2669709510580260857}
   m_Layer: 0
   m_Name: TeleportableFigure1
@@ -77,19 +76,6 @@ EdgeCollider2D:
   - {x: -0.5, y: 1.5}
   - {x: -0.5, y: 0.5}
   - {x: -1.5, y: 0.5}
---- !u!114 &5334113557886977347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567757657359793485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e61feffaae6dfb946a85f95978392e5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBetweenTeleports: 0
 --- !u!114 &2669709510580260857
 MonoBehaviour:
   m_ObjectHideFlags: 0

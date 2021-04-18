@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4872639136087155576}
   - component: {fileID: 5242447042682635193}
   - component: {fileID: -2945435075401093156}
-  - component: {fileID: -4007923241066973858}
   m_Layer: 0
   m_Name: DefaultFigure7
   m_TagString: Untagged
@@ -76,19 +75,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedOfFigure: 4
---- !u!114 &-4007923241066973858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4872639136087155577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 632f15c0d60871040b62b214e28b983c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpeedOfFigure: 0
 --- !u!1001 &17112764659907063
 PrefabInstance:
   m_ObjectHideFlags: 0
