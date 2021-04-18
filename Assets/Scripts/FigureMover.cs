@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FigureLifetime : MonoBehaviour
+public class FigureMover : MonoBehaviour
 {
-    public float speedOfFigure;
+    public float SpeedOfFigure;
+    private Transform _transform;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _transform = transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, -Time.deltaTime * speedOfFigure, 0); 
+        _transform.Translate(Vector2.down * SpeedOfFigure * Time.deltaTime); 
     }
 }
