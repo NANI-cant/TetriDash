@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class PlatformMover : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] private float speed;
+    [SerializeField] private Transform leftPoint;
+    [SerializeField] private Transform rightPoint;
+    private Transform _transform;
+    [Range(-1, 1)]
+    private int movingDirection;
+    readonly private float accuracity = 0.0005f;
+
+
+    private void Start(){
+        _transform = GetComponent<Transform>();
+        movingDirection = 1;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void FixedUpdate(){
+        _transform.Translate(Vector2.right*movingDirection*speed*Time.deltaTime);
+        if(Mathf.Abs(_transform.position.x - leftPoint.position.x)<=accuracity || Mathf.Abs(_transform.position.x - rightPoint.position.x)<=accuracity || Input.GetButtonDown("Fire1")){
+            ChangeMovingDirection();
+        }
+    }
+
+    private void ChangeMovingDirection(){
+        movingDirection*=-1;
     }
 }
