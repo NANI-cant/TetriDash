@@ -6,22 +6,25 @@ public class SpawnerFigures : MonoBehaviour
 {
     [SerializeField] private GameObject[] templates;
     [SerializeField] private float timeBetweenSpawns;
-    private GameObject currentFigure;
 
-    void Start()
+    private void Start()
     {
         StartCoroutine(Spawner());
     }
 
     private IEnumerator Spawner()
     {
-        for(int i = 0; i < 100; i++)
-        {
-            int randomX = Random.Range(-8,9);
-            currentFigure = templates[Random.Range(0, templates.Length)];
-            Instantiate(currentFigure, new Vector3(randomX, transform.position.y, 0), Quaternion.identity);
-            yield return new WaitForSeconds(timeBetweenSpawns);
-        }
-       
+        int randomX = Random.Range(-8,9);
+        GameObject currentFigure = templates[Random.Range(0, templates.Length)];
+        Instantiate(currentFigure, new Vector3(randomX, transform.position.y, 0), Quaternion.identity);
+        currentFigure.transform.position = new Vector2(randomX,transform.position.y);
+        yield return new WaitForSeconds(timeBetweenSpawns);
+        StartCoroutine(Spawner());
+    }
+
+    public void ChangePosition(Transform figureTransform){
+        figureTransform.position = transform.position;
+        int randomX = Random.Range(-8,9);
+        figureTransform.position = new Vector2(randomX, figureTransform.position.y);
     }
 }

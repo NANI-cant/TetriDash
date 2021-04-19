@@ -13,6 +13,6 @@ public class FigureMover : MonoBehaviour
 
     private void Update()
     {
-        _transform.Translate(Vector2.down * SpeedOfFigure * Time.deltaTime); 
+        _transform.Translate(Vector2.down * SpeedOfFigure * Time.deltaTime,Space.World); 
     }
 }

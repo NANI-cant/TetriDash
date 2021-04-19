@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3890339743503150741}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3, y: 18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7697974226264281532}
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61feffaae6dfb946a85f95978392e5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenTeleports: 5
+  TimeBetweenTeleports: 4
 --- !u!68 &2983919255383959517
 EdgeCollider2D:
   m_ObjectHideFlags: 0

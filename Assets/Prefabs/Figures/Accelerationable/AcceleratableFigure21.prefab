@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 4
   minTimeToAcceleration: 3
-  maxTimeToAcceleration: 7
+  maxTimeToAcceleration: 4
 --- !u!1001 &1216445402555561407
 PrefabInstance:
   m_ObjectHideFlags: 0

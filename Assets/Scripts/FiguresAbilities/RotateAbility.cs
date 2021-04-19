@@ -22,6 +22,6 @@ public class RotateAbility : MonoBehaviour
     }
 
     private void Rotate(){
-        _rotationPoint.Rotate(new Vector3(0,0,-90f));
+        transform.RotateAround(_rotationPoint.position,new Vector3(0,0,1),-90);
     }
 }

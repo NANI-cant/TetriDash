@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class TeleportAbility : MonoBehaviour
 {
-    [SerializeField] private float timeBetweenTeleports;
+    public float TimeBetweenTeleports = 5f;
     private Collider2D _collider;
     private Bounds _bounds;
     private float remainigTimeToTeleport;
@@ -15,13 +15,13 @@ public class TeleportAbility : MonoBehaviour
 
     private void Start(){
         _collider = GetComponent<Collider2D>();
-        remainigTimeToTeleport = timeBetweenTeleports;
+        remainigTimeToTeleport = TimeBetweenTeleports;
     }
 
     private void FixedUpdate(){
         if(remainigTimeToTeleport <= 0){
             TryToTeleport();
-            remainigTimeToTeleport = timeBetweenTeleports;
+            remainigTimeToTeleport = TimeBetweenTeleports;
         }
         else{
             remainigTimeToTeleport-=Time.deltaTime;
@@ -36,6 +36,7 @@ public class TeleportAbility : MonoBehaviour
         }
         do{
             xTeleport = Random.Range(maxLeftTranslate,maxRightTranslate);
+            Debug.Log("newPosToTeleport");
         } while (!isAreaFree());
         transform.Translate(new Vector3(xTeleport,0,0));
     }
@@ -51,16 +52,4 @@ public class TeleportAbility : MonoBehaviour
             return false;
         }
     }
-
-    // private void OnDrawGizmos(){
-    //     RaycastHit2D[] boxResult;
-    //     boxResult = Physics2D.BoxCastAll(_bounds.center + new Vector3(xTeleport,0,0),_bounds.size,0,new Vector2(0,0));
-    //     if(boxResult.Length>1){
-    //         Gizmos.color = Color.red;
-    //         Gizmos.DrawWireCube(_bounds.center + new Vector3(xTeleport,0,0),_bounds.size);
-    //     }else if(boxResult.Length==1 && boxResult[0].collider == _collider || boxResult.Length==0){
-    //         Gizmos.color = Color.green;
-    //         Gizmos.DrawWireCube(_bounds.center + new Vector3(xTeleport,0,0),_bounds.size);
-    //     }
-    // }
 } 

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61feffaae6dfb946a85f95978392e5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenTeleports: 5
+  TimeBetweenTeleports: 4
 --- !u!68 &2628226332498328504
 EdgeCollider2D:
   m_ObjectHideFlags: 0
