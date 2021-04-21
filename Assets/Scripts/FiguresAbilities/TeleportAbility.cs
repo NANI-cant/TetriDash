@@ -9,9 +9,9 @@ public class TeleportAbility : MonoBehaviour
     private Collider2D _collider;
     private Bounds _bounds;
     private float remainigTimeToTeleport;
-    private int xTeleport;
+    private float xTeleport;
     readonly private int maxLeftTranslate = -15;
-    readonly private int maxRightTranslate = 16;
+    readonly private int maxRightTranslate = 15;
 
     private void Start(){
         _collider = GetComponent<Collider2D>();
@@ -36,7 +36,6 @@ public class TeleportAbility : MonoBehaviour
         }
         do{
             xTeleport = Random.Range(maxLeftTranslate,maxRightTranslate);
-            Debug.Log("newPosToTeleport");
         } while (!isAreaFree());
         transform.Translate(new Vector3(xTeleport,0,0));
     }

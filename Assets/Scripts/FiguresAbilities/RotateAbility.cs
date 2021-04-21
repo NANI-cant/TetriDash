@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RotateAbility : MonoBehaviour
 {
-    [SerializeField] private Transform _rotationPoint;
     [SerializeField] private float timeBetweenRotations;
     private float remainingTimeToRotate;
 
@@ -22,6 +21,6 @@ public class RotateAbility : MonoBehaviour
     }
 
     private void Rotate(){
-        transform.RotateAround(_rotationPoint.position,new Vector3(0,0,1),-90);
+        transform.Rotate(new Vector3(0,0,-90));
     }
 }
