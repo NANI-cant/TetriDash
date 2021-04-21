@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 567757657359793484}
   - component: {fileID: 1103291053}
-  - component: {fileID: 2726617348330671474}
   - component: {fileID: 2669709510580260857}
+  - component: {fileID: 7333238121724793908}
+  - component: {fileID: 8638078303880968757}
   m_Layer: 0
   m_Name: TeleportableFigure1
   m_TagString: Untagged
@@ -50,32 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61feffaae6dfb946a85f95978392e5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBetweenTeleports: 4
---- !u!68 &2726617348330671474
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567757657359793485}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -1.5, y: 0.5}
-  - {x: -1.5, y: -0.5}
-  - {x: 1.5, y: -0.5}
-  - {x: 1.5, y: 0.5}
-  - {x: 0.5, y: 0.5}
-  - {x: 0.5, y: 1.5}
-  - {x: -0.5, y: 1.5}
-  - {x: -0.5, y: 0.5}
-  - {x: -1.5, y: 0.5}
+  minTimeToTeleport: 3
+  maxTimeToTeleport: 6
 --- !u!114 &2669709510580260857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +66,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedOfFigure: 4
+--- !u!50 &7333238121724793908
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567757657359793485}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!66 &8638078303880968757
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567757657359793485}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
 --- !u!1 &3513848144201511773
 GameObject:
   m_ObjectHideFlags: 0

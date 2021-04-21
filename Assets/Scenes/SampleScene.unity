@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 417050978}
   m_Layer: 0
   m_Name: RightPoint
-  m_TagString: Untagged
+  m_TagString: RightLimit
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 759130308}
   m_Layer: 0
   m_Name: LeftLimit
-  m_TagString: LeftLimit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 1396446018}
   m_Layer: 0
   m_Name: RightLimit
-  m_TagString: RightLimit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 1695883857}
   m_Layer: 0
   m_Name: LeftPoint
-  m_TagString: Untagged
+  m_TagString: LeftLimit
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

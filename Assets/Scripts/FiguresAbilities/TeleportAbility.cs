@@ -5,23 +5,25 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class TeleportAbility : MonoBehaviour
 {
-    public float TimeBetweenTeleports = 5f;
+    public float minTimeToTeleport = 3f;
+    public float maxTimeToTeleport = 6f;
     private Collider2D _collider;
-    private Bounds _bounds;
     private float remainigTimeToTeleport;
     private float xTeleport;
-    readonly private int maxLeftTranslate = -15;
-    readonly private int maxRightTranslate = 15;
+    private Transform leftSide;
+    private Transform rightSide;
+    private bool isTeleported = false;
 
     private void Start(){
         _collider = GetComponent<Collider2D>();
-        remainigTimeToTeleport = TimeBetweenTeleports;
+        remainigTimeToTeleport = Random.Range(minTimeToTeleport,maxTimeToTeleport);
+        leftSide = GameObject.FindGameObjectWithTag("LeftLimit").transform;
+        rightSide = GameObject.FindGameObjectWithTag("RightLimit").transform;
     }
 
     private void FixedUpdate(){
-        if(remainigTimeToTeleport <= 0){
+        if(remainigTimeToTeleport <= 0 && !isTeleported){
             TryToTeleport();
-            remainigTimeToTeleport = TimeBetweenTeleports;
         }
         else{
             remainigTimeToTeleport-=Time.deltaTime;
@@ -29,20 +31,19 @@ public class TeleportAbility : MonoBehaviour
     }
 
     private void TryToTeleport(){
-        _bounds = new Bounds();
-        for(int i=0;i<transform.childCount;i++){
-            Bounds currentChildBounds = new Bounds(transform.GetChild(i).transform.position,Vector2.one);
-            _bounds.Encapsulate(currentChildBounds);
-        }
         do{
+            float maxLeftTranslate = leftSide.position.x-transform.position.x;
+            float maxRightTranslate = rightSide.position.x-transform.position.x;
             xTeleport = Random.Range(maxLeftTranslate,maxRightTranslate);
+            Debug.Log("LOL");
         } while (!isAreaFree());
         transform.Translate(new Vector3(xTeleport,0,0));
+        isTeleported = true;
     }
 
     private bool isAreaFree(){
         RaycastHit2D[] boxResult;
-        boxResult = Physics2D.BoxCastAll(_bounds.center + new Vector3(xTeleport,0,0),_bounds.size,0,new Vector2(0,0));
+        boxResult = Physics2D.BoxCastAll(_collider.bounds.center + new Vector3(xTeleport,0,0),_collider.bounds.size,0,new Vector2(0,0));
         if(boxResult.Length>1){
             return false;
         }else if(boxResult.Length==1 && boxResult[0].collider == _collider || boxResult.Length==0){
