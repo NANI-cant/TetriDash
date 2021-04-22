@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8262998945554910140}
   - component: {fileID: -8112422582025254526}
   - component: {fileID: -1007550352905591797}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TeleportableFigure4
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4364211186433114874}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.0016925, y: 18, z: 0}
+  m_LocalPosition: {x: -0.92033434, y: 18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7185839916598656467}
@@ -85,7 +85,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!66 &-1007550352905591797
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -190,6 +190,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Square (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3341417853484229066, guid: 10492fca08d40824b92397c1a14cf8f4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10492fca08d40824b92397c1a14cf8f4, type: 3}
 --- !u!4 &2696594987586637998 stripped
@@ -279,6 +284,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Square
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341417853484229066, guid: 10492fca08d40824b92397c1a14cf8f4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10492fca08d40824b92397c1a14cf8f4, type: 3}
@@ -370,6 +380,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Square (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3341417853484229066, guid: 10492fca08d40824b92397c1a14cf8f4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10492fca08d40824b92397c1a14cf8f4, type: 3}
 --- !u!4 &8746892482487998315 stripped
@@ -459,6 +474,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Square (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341417853484229066, guid: 10492fca08d40824b92397c1a14cf8f4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10492fca08d40824b92397c1a14cf8f4, type: 3}
