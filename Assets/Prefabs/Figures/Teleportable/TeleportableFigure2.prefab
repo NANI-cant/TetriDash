@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7263455413042245212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.0979514, y: 18, z: 0}
+  m_LocalPosition: {x: -2.0764284, y: 18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4315868537815814517}
@@ -85,7 +85,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!66 &-5964675782931511935
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ CompositeCollider2D:
   m_GameObject: {fileID: 7263455413042245212}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7c4e827905804b645ac89400f0ca72b4, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

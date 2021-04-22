@@ -586,22 +586,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1308180210, guid: d45c623367cae9047b774e71b7aa4f70, type: 3}
-      propertyPath: m_EdgeRadius
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1308180210, guid: d45c623367cae9047b774e71b7aa4f70, type: 3}
-      propertyPath: m_GeometryType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1308180210, guid: d45c623367cae9047b774e71b7aa4f70, type: 3}
-      propertyPath: m_ColliderPaths.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1308180210, guid: d45c623367cae9047b774e71b7aa4f70, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 785036823924112689, guid: d45c623367cae9047b774e71b7aa4f70,
         type: 3}
       propertyPath: m_RootOrder
@@ -662,40 +646,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformModule
       objectReference: {fileID: 0}
-    - target: {fileID: 6413209769152256723, guid: d45c623367cae9047b774e71b7aa4f70,
+    - target: {fileID: 6735781056513273329, guid: d45c623367cae9047b774e71b7aa4f70,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6413209769152256723, guid: d45c623367cae9047b774e71b7aa4f70,
-        type: 3}
-      propertyPath: m_UsedByComposite
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 7c4e827905804b645ac89400f0ca72b4, type: 2}
     - target: {fileID: 7037501302796760293, guid: d45c623367cae9047b774e71b7aa4f70,
         type: 3}
       propertyPath: _deadLine
       value: 
       objectReference: {fileID: 372072200}
-    - target: {fileID: 8511054889491286866, guid: d45c623367cae9047b774e71b7aa4f70,
-        type: 3}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8511054889491286868, guid: d45c623367cae9047b774e71b7aa4f70,
         type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8683097527376332979, guid: d45c623367cae9047b774e71b7aa4f70,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8683097527376332979, guid: d45c623367cae9047b774e71b7aa4f70,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d45c623367cae9047b774e71b7aa4f70, type: 3}
