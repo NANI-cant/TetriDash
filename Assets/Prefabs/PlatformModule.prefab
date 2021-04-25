@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 374543728210680572}
   m_Layer: 0
   m_Name: LeftPoint
-  m_TagString: Untagged
+  m_TagString: LeftLimit
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 4716464903922308095}
   m_Layer: 0
   m_Name: RightPoint
-  m_TagString: Untagged
+  m_TagString: RightLimit
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 6413209769152256723}
   - component: {fileID: 1308180210}
   - component: {fileID: 5643548593820996270}
+  - component: {fileID: 1041944860207833929}
   m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
@@ -407,8 +408,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  leftPoint: {fileID: 374543728210680572}
-  rightPoint: {fileID: 4716464903922308095}
+  leftSide: {fileID: 374543728210680572}
+  rightSide: {fileID: 4716464903922308095}
 --- !u!114 &902080482118217519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,5 +543,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d9d492e717557941b820683c682001d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1041944860207833929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8683097527376332979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1c0248b4bc1a44b885ac89ae362f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -484,12 +484,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &919126503 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4716464903922308095, guid: d45c623367cae9047b774e71b7aa4f70,
-    type: 3}
-  m_PrefabInstance: {fileID: 8511054889491286862}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1396446016
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,12 +571,6 @@ Transform:
   m_Father: {fileID: 836276191}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2109383678 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 374543728210680572, guid: d45c623367cae9047b774e71b7aa4f70,
-    type: 3}
-  m_PrefabInstance: {fileID: 8511054889491286862}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8511054889491286862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -645,40 +633,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3293659482040908684, guid: d45c623367cae9047b774e71b7aa4f70,
-        type: 3}
-      propertyPath: m_TagString
-      value: LeftLimit
-      objectReference: {fileID: 0}
     - target: {fileID: 4123057704942027586, guid: d45c623367cae9047b774e71b7aa4f70,
         type: 3}
       propertyPath: m_Name
       value: PlatformModule
-      objectReference: {fileID: 0}
-    - target: {fileID: 6198200600543020684, guid: d45c623367cae9047b774e71b7aa4f70,
-        type: 3}
-      propertyPath: m_TagString
-      value: RightLimit
       objectReference: {fileID: 0}
     - target: {fileID: 7037501302796760293, guid: d45c623367cae9047b774e71b7aa4f70,
         type: 3}
       propertyPath: _deadLine
       value: 
       objectReference: {fileID: 372072200}
-    - target: {fileID: 8511054889491286866, guid: d45c623367cae9047b774e71b7aa4f70,
-        type: 3}
-      propertyPath: leftSide
-      value: 
-      objectReference: {fileID: 2109383678}
-    - target: {fileID: 8511054889491286866, guid: d45c623367cae9047b774e71b7aa4f70,
-        type: 3}
-      propertyPath: rigtSide
-      value: 
-      objectReference: {fileID: 919126503}
-    - target: {fileID: 8511054889491286866, guid: d45c623367cae9047b774e71b7aa4f70,
-        type: 3}
-      propertyPath: rightSide
-      value: 
-      objectReference: {fileID: 919126503}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d45c623367cae9047b774e71b7aa4f70, type: 3}

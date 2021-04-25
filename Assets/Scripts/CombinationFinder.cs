@@ -7,15 +7,20 @@ public class CombinationFinder : MonoBehaviour
 {
     private SquaresConnecter _connecter;
     private CombinationDestroyer _destroyer;
+    private SquaresLander _lander;
 
     private void Awake(){
-        _connecter = GameObject.FindObjectOfType<PlatformMover>().GetComponent<SquaresConnecter>();
+        GameObject _platform = GameObject.FindObjectOfType<PlatformMover>().gameObject;
+        _connecter = _platform.GetComponent<SquaresConnecter>();
         _connecter.OnSquareConnect += FindCombination;
-        _destroyer = GameObject.FindObjectOfType<PlatformMover>().GetComponent<CombinationDestroyer>();
+        _lander = _platform.GetComponent<SquaresLander>();
+        _lander.OnSquaresLand +=FindCombination;
+        _destroyer = _platform.GetComponent<CombinationDestroyer>();
     }
 
     private void OnDisable(){
         _connecter.OnSquareConnect -= FindCombination;
+        _lander.OnSquaresLand -=FindCombination;
     }
 
     private void FindCombination(){

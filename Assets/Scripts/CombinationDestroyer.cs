@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class CombinationDestroyer : MonoBehaviour
 {
+
+    private SquaresLander _lander;
+
+    private void Start(){
+        _lander = GetComponent<SquaresLander>();
+    }
     public void DestroyCombination(float yCoordinate){
         RaycastHit2D[] hitResults;
         hitResults = Physics2D.BoxCastAll(new Vector2(0,yCoordinate),new Vector2(40,1.5f),0,Vector2.zero);
@@ -12,5 +18,6 @@ public class CombinationDestroyer : MonoBehaviour
                 Destroy(hitResults[i].collider.gameObject);
             }
         }
+        _lander.Land(yCoordinate - 1);
     }
 }
