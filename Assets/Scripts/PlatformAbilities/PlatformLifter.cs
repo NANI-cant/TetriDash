@@ -6,6 +6,7 @@ public class PlatformLifter : MonoBehaviour
 {
     [SerializeField] private DestroyerFigures _deadLine;
     [SerializeField] private float liftingSpeed = 0.3f;
+    private CombinationDestroyer _destroyer;
     private Transform _transform;
     private float startHeight;
     private float currentHeight;
@@ -14,6 +15,13 @@ public class PlatformLifter : MonoBehaviour
         _deadLine.OnFigureDestroy+=LiftPlatform;
         _transform = transform;
         startHeight = currentHeight = _transform.position.y;
+        _destroyer = FindObjectOfType<CombinationDestroyer>();
+        _destroyer.OnCombinationDestroy += LiftDownPlatform;
+    }
+
+    private void OnDisable(){
+        _deadLine.OnFigureDestroy-=LiftPlatform;
+        _destroyer.OnCombinationDestroy -= LiftDownPlatform;
     }
 
     private void FixedUpdate(){

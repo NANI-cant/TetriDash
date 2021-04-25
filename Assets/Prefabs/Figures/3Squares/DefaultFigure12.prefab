@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4872639136087155577}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9509618, y: 18, z: 0}
+  m_LocalPosition: {x: 0.055799007, y: 18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2069094916569078864}
@@ -202,6 +202,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467816093184138717, guid: 10492fca08d40824b92397c1a14cf8f4,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.31764707
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467816093184138717, guid: 10492fca08d40824b92397c1a14cf8f4,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 0.37254903
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467816093184138717, guid: 10492fca08d40824b92397c1a14cf8f4,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.31764707
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467816093184138717, guid: 10492fca08d40824b92397c1a14cf8f4,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0.37254903
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10492fca08d40824b92397c1a14cf8f4, type: 3}
