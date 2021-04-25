@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SquaresConnecter : MonoBehaviour
 {
     [SerializeField] private GameObject connectedSquare;
     private Transform _platform;
     private bool isPlatform;
+    public UnityAction OnSquareConnect;
+    
     private void Awake(){
         _platform = FindObjectOfType<PlatformMover>().gameObject.transform;
         isPlatform = GetComponent<PlatformMover>()!=null;
@@ -19,7 +22,7 @@ public class SquaresConnecter : MonoBehaviour
     }
 
     private void ConnectFigure(GameObject currentFigure){
-        Vector3[] squaresPositions = new Vector3[4];
+        Vector3[] squaresPositions = new Vector3[currentFigure.transform.childCount];
         for(int i=0;i<squaresPositions.Length;i++){
             squaresPositions[i] = currentFigure.transform.GetChild(i).transform.position;
         }
@@ -33,5 +36,6 @@ public class SquaresConnecter : MonoBehaviour
             currentSquare.transform.localPosition = roundedPosition;
             currentSquare.GetComponent<SpriteRenderer>().color = currentColor;
         }
+        OnSquareConnect?.Invoke();
     }
 }

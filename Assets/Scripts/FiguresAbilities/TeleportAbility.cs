@@ -35,7 +35,6 @@ public class TeleportAbility : MonoBehaviour
             float maxLeftTranslate = leftSide.position.x-transform.position.x;
             float maxRightTranslate = rightSide.position.x-transform.position.x;
             xTeleport = Random.Range(maxLeftTranslate,maxRightTranslate);
-            Debug.Log("LOL");
         } while (!isAreaFree());
         transform.Translate(new Vector3(xTeleport,0,0));
         isTeleported = true;

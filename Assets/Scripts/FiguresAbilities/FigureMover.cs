@@ -15,7 +15,6 @@ public class FigureMover : MonoBehaviour
 
     private void Update()
     {
-        //_transform.Translate(Vector2.down * SpeedOfFigure * Time.deltaTime,Space.World); 
         _rigidbody.velocity = Vector2.down * SpeedOfFigure;
     }
 }
