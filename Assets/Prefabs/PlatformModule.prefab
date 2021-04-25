@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 374543728210680572}
   m_Layer: 0
   m_Name: LeftPoint
-  m_TagString: LeftLimit
+  m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 4716464903922308095}
   m_Layer: 0
   m_Name: RightPoint
-  m_TagString: RightLimit
+  m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
