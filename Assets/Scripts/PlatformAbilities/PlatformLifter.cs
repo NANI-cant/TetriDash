@@ -5,7 +5,11 @@ using UnityEngine;
 public class PlatformLifter : MonoBehaviour
 {
     [SerializeField] private DestroyerFigures _deadLine;
-    [SerializeField] private float liftingSpeed = 0.3f;
+    [SerializeField] private float liftingSpeed = 0.35f;
+    public float UnitForLiftUp = 3f;
+    public float UnitForLiftDown = 1f;
+
+    private bool canLift = true;
     private CombinationDestroyer _destroyer;
     private Transform _transform;
     private float startHeight;
@@ -15,29 +19,40 @@ public class PlatformLifter : MonoBehaviour
         _deadLine.OnFigureDestroy+=LiftPlatform;
         _transform = transform;
         startHeight = currentHeight = _transform.position.y;
+        
         _destroyer = FindObjectOfType<CombinationDestroyer>();
-        _destroyer.OnCombinationDestroy += LiftDownPlatform;
+        _destroyer.OnCombinationDestroyStart += LiftOff;
+        _destroyer.OnCombinationDestroyEnd += LiftDownPlatform;
+        _destroyer.OnCombinationDestroyEnd += LiftOn;
     }
 
     private void OnDisable(){
         _deadLine.OnFigureDestroy-=LiftPlatform;
-        _destroyer.OnCombinationDestroy -= LiftDownPlatform;
+        _destroyer.OnCombinationDestroyEnd -= LiftDownPlatform;
     }
 
-    private void FixedUpdate(){
-        if(_transform.position.y!=currentHeight){
+    private void Update(){
+        if(_transform.position.y!=currentHeight && canLift){
             float distance = currentHeight - _transform.position.y;
-            transform.Translate(new Vector3(0,distance,0) * liftingSpeed * Time.deltaTime);
+            transform.Translate(new Vector3(0,distance,0).normalized * liftingSpeed * Time.deltaTime);
         }
     }
 
     private void LiftPlatform(){
-        currentHeight++;
+        currentHeight += UnitForLiftUp;
     }
 
     private void LiftDownPlatform(){
-        if(currentHeight>startHeight){
-            currentHeight--;
+        if(currentHeight > startHeight){
+            currentHeight -= UnitForLiftDown;
         }
+    }
+
+    private void LiftOn(){
+        canLift = true;
+    }
+
+    private void LiftOff(){
+        canLift = false;
     }
 }

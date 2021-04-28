@@ -41,7 +41,7 @@ public class FigurePredicter : MonoBehaviour
 
         for(int i=0;i<_transform.childCount;i++){
             RaycastHit2D hitResult;
-            hitResult = Physics2D.BoxCast(childsTransforms[i].position,Vector2.one,0, Vector2.down,40,_layer);
+            hitResult = Physics2D.BoxCast(childsTransforms[i].position,new Vector2(0.95f,1),0, Vector2.down,40,_layer);
             if(hitResult.collider!=null)
                 raysDistances[i] = hitResult.distance;
             else

@@ -242,7 +242,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deadLine: {fileID: 0}
-  liftingSpeed: 0.3
+  liftingSpeed: 0.35
+  UnitForLiftUp: 3
+  UnitForLiftDown: 1
 --- !u!1 &6198200600543020684
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +508,7 @@ CompositeCollider2D:
   m_GameObject: {fileID: 8683097527376332979}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7c4e827905804b645ac89400f0ca72b4, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -545,6 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d9d492e717557941b820683c682001d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flash: {fileID: 8696375435587005174, guid: f82581e78533b0b42ba9c88ff39ba2a7, type: 3}
 --- !u!114 &1041944860207833929
 MonoBehaviour:
   m_ObjectHideFlags: 0

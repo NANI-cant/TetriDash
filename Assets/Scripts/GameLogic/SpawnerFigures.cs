@@ -8,9 +8,13 @@ public class SpawnerFigures : MonoBehaviour
     [SerializeField] private float timeBetweenSpawns;
     [SerializeField] private Transform leftSide; 
     [SerializeField] private Transform rightSide;
+    private Settings _settings;
 
     private void Start()
     {
+        _settings = FindObjectOfType<Settings>();
+        _settings.OnSpawnTimeChange+=ChangeTimeToSpawn;
+        timeBetweenSpawns = _settings.GetSpawnTime();
         StartCoroutine(Spawner());
     }
 
@@ -29,5 +33,9 @@ public class SpawnerFigures : MonoBehaviour
         figureTransform.position = transform.position;
         float randomX = Random.Range(leftSide.InverseTransformPoint(transform.position).x,rightSide.InverseTransformPoint(transform.position).x);
         figureTransform.position = new Vector2(randomX, figureTransform.position.y);
+    }
+
+    private void ChangeTimeToSpawn(float newTime){
+        timeBetweenSpawns = newTime;
     }
 }

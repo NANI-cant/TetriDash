@@ -7,6 +7,8 @@ public class PlatformMover : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Transform leftSide;
     [SerializeField] private Transform rightSide;
+    private CombinationDestroyer _destroyer;
+    private bool canMove = true;
     private Transform _transform;
     private Camera _camera;
     private float movingDirection = 0;
@@ -17,6 +19,14 @@ public class PlatformMover : MonoBehaviour
     private void Start(){
         _transform = GetComponent<Transform>();
         _camera = Camera.main;
+        _destroyer = FindObjectOfType<CombinationDestroyer>();
+        _destroyer.OnCombinationDestroyStart += MoveOff; 
+        _destroyer.OnCombinationDestroyEnd += MoveOn;
+    }
+
+    private void OnDisable(){
+        _destroyer.OnCombinationDestroyStart -= MoveOff; 
+        _destroyer.OnCombinationDestroyEnd -= MoveOn;
     }
 
     private void Update(){
@@ -36,9 +46,17 @@ public class PlatformMover : MonoBehaviour
         if(Input.GetButton("Fire1")){
             cursorPosition = _camera.ScreenToWorldPoint(Input.mousePosition);
             movingDirection = cursorPosition.x/Mathf.Abs(cursorPosition.x);
-            if(movingDirection>0 && canMoveRight || movingDirection<0 && canMoveLeft){
+            if((movingDirection>0 && canMoveRight || movingDirection<0 && canMoveLeft) && canMove){
                 _transform.Translate(Vector2.right*movingDirection*speed*Time.deltaTime);
             }
         }
+    }
+
+    private void MoveOn(){
+        canMove = true;
+    }
+
+    private void MoveOff(){
+        canMove = false;
     }
 }
