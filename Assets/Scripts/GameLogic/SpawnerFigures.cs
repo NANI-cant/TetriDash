@@ -9,9 +9,11 @@ public class SpawnerFigures : MonoBehaviour
     [SerializeField] private Transform leftSide; 
     [SerializeField] private Transform rightSide;
     private Settings _settings;
+    private bool canSpawn = true;
 
     private void Start()
     {
+        FindObjectOfType<TopLineChecker>().OnGameFinish += StopSpawn;
         _settings = FindObjectOfType<Settings>();
         _settings.OnSpawnTimeChange+=ChangeTimeToSpawn;
         timeBetweenSpawns = _settings.GetSpawnTime();
@@ -26,7 +28,9 @@ public class SpawnerFigures : MonoBehaviour
         Instantiate(currentFigure, new Vector3(randomX, transform.position.y, 0),Quaternion.Euler(0,0,-90*randomRotateKoef));
         currentFigure.transform.position = new Vector2(randomX,transform.position.y);
         yield return new WaitForSeconds(timeBetweenSpawns);
-        StartCoroutine(Spawner());
+        if(canSpawn){
+            StartCoroutine(Spawner());
+        }
     }
 
     public void ChangePosition(Transform figureTransform){
@@ -37,5 +41,9 @@ public class SpawnerFigures : MonoBehaviour
 
     private void ChangeTimeToSpawn(float newTime){
         timeBetweenSpawns = newTime;
+    }
+
+    private void StopSpawn(){
+        canSpawn = false;
     }
 }
