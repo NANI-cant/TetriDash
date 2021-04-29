@@ -12,16 +12,12 @@ public class CombinationFinder : MonoBehaviour
     private void Awake(){
         GameObject _platform = GameObject.FindObjectOfType<PlatformMover>().gameObject;
         _connecter = _platform.GetComponent<SquaresConnecter>();
-        //_connecter.OnSquareConnect += FindCombination;
         _lander = _platform.GetComponent<SquaresLander>();
-        //_lander.OnSquaresLand +=FindCombination;
         _destroyer = _platform.GetComponent<CombinationDestroyer>();
         _destroyer.AddNewFinder(this);
     }
 
     private void OnDisable(){
-        //_connecter.OnSquareConnect -= FindCombination;
-        //_lander.OnSquaresLand -= FindCombination;
         _destroyer.DeleteFinder(this);
     }
 
@@ -29,8 +25,6 @@ public class CombinationFinder : MonoBehaviour
         RaycastHit2D[] hitResults;
         hitResults = Physics2D.BoxCastAll(transform.position,Vector2.one*1.5f,0,Vector2.zero,8);
         if(hitResults.Length == 10){
-            //Debug.Log("Find in x = " + transform.localPosition.x.ToString() + " y = " + transform.localPosition.y.ToString());   
-            Debug.Log("Find");
             _destroyer.DestroyCombination(transform.position.y);
             return true;
         }else if(hitResults.Length>10){

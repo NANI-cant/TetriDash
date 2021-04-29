@@ -26,7 +26,7 @@ public class PlatformMover : MonoBehaviour
     }
 
     private void OnDisable(){
-        FindObjectOfType<TopLineChecker>().OnGameFinish -= MoveOff;
+        //FindObjectOfType<TopLineChecker>().OnGameFinish -= MoveOff;
         _destroyer.OnCombinationDestroyStart -= MoveOff; 
         _destroyer.OnCombinationDestroyEnd -= MoveOn;
     }

@@ -47,7 +47,6 @@ public class CombinationDestroyer : MonoBehaviour
     }
 
     private IEnumerator DestroyingCoroutine(float yCoordinate){
-        Debug.Log("DStart");
         OnCombinationDestroyStart?.Invoke();
         RaycastHit2D[] hitResults;
         hitResults = Physics2D.BoxCastAll(new Vector2(0,yCoordinate),new Vector2(40,1.5f),0,Vector2.zero);
@@ -60,6 +59,5 @@ public class CombinationDestroyer : MonoBehaviour
         }
         _lander.Land(yCoordinate - 1);
         yield return 1/6f;
-        Debug.Log("DFinish");
     }
 }

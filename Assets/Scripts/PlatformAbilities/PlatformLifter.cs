@@ -19,7 +19,7 @@ public class PlatformLifter : MonoBehaviour
         _deadLine.OnFigureDestroy+=LiftPlatform;
         _transform = transform;
         startHeight = currentHeight = _transform.position.y;
-        
+        FindObjectOfType<TopLineChecker>().OnGameFinish+=LiftOff;
         _destroyer = FindObjectOfType<CombinationDestroyer>();
         _destroyer.OnCombinationDestroyStart += LiftOff;
         _destroyer.OnCombinationDestroyEnd += LiftDownPlatform;
@@ -27,6 +27,7 @@ public class PlatformLifter : MonoBehaviour
     }
 
     private void OnDisable(){
+        //FindObjectOfType<TopLineChecker>().OnGameFinish-=LiftOff;
         _deadLine.OnFigureDestroy-=LiftPlatform;
         _destroyer.OnCombinationDestroyEnd -= LiftDownPlatform;
     }
