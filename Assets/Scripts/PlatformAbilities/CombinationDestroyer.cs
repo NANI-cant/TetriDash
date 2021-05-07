@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(SquaresLander))]
+[RequireComponent(typeof(SquaresConnecter))]
 public class CombinationDestroyer : MonoBehaviour
 {
     [SerializeField] private GameObject flash;

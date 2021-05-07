@@ -20,6 +20,7 @@ public class PlatformLifter : MonoBehaviour
         _transform = transform;
         startHeight = currentHeight = _transform.position.y;
         FindObjectOfType<TopLineChecker>().OnGameFinish+=LiftOff;
+        FindObjectOfType<UIActivator>().OnGameContinue+=LiftOn;
         _destroyer = FindObjectOfType<CombinationDestroyer>();
         _destroyer.OnCombinationDestroyStart += LiftOff;
         _destroyer.OnCombinationDestroyEnd += LiftDownPlatform;
@@ -27,7 +28,8 @@ public class PlatformLifter : MonoBehaviour
     }
 
     private void OnDisable(){
-        //FindObjectOfType<TopLineChecker>().OnGameFinish-=LiftOff;
+        FindObjectOfType<TopLineChecker>().OnGameFinish-=LiftOff;
+        FindObjectOfType<UIActivator>().OnGameContinue-=LiftOn;
         _deadLine.OnFigureDestroy-=LiftPlatform;
         _destroyer.OnCombinationDestroyEnd -= LiftDownPlatform;
     }
@@ -43,9 +45,16 @@ public class PlatformLifter : MonoBehaviour
         currentHeight += UnitForLiftUp;
     }
 
-    private void LiftDownPlatform(){
+    public void LiftDownPlatform(){
         if(currentHeight > startHeight){
             currentHeight -= UnitForLiftDown;
+        }
+    }
+
+    public void ImmediatlyDownToCenter(){
+        if(_transform.position.y> startHeight+6f){
+            currentHeight = startHeight + 6f;
+            _transform.Translate(new Vector3(0,currentHeight-_transform.position.y,0));
         }
     }
 

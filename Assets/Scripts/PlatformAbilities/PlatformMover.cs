@@ -23,10 +23,12 @@ public class PlatformMover : MonoBehaviour
         _destroyer.OnCombinationDestroyStart += MoveOff; 
         _destroyer.OnCombinationDestroyEnd += MoveOn;
         FindObjectOfType<TopLineChecker>().OnGameFinish += MoveOff;
+        FindObjectOfType<UIActivator>().OnGameContinue+=MoveOn;
     }
 
     private void OnDisable(){
-        //FindObjectOfType<TopLineChecker>().OnGameFinish -= MoveOff;
+        FindObjectOfType<TopLineChecker>().OnGameFinish -= MoveOff;
+        FindObjectOfType<UIActivator>().OnGameContinue-=MoveOn;
         _destroyer.OnCombinationDestroyStart -= MoveOff; 
         _destroyer.OnCombinationDestroyEnd -= MoveOn;
     }

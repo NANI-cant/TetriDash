@@ -521,8 +521,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsFirstEnter: 0
+  CurrentScore: 0
   BestScore: 0
-  NewScore: 0
 --- !u!4 &1258135156
 Transform:
   m_ObjectHideFlags: 0
@@ -812,6 +812,7 @@ GameObject:
   - component: {fileID: 1842732442}
   - component: {fileID: 1842732441}
   - component: {fileID: 1842732440}
+  - component: {fileID: 1842732443}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -930,3 +931,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842732438}
   m_CullTransparentMesh: 0
+--- !u!114 &1842732443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842732438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe34a2e9e626a0409ef207c4e57f1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _image: {fileID: 1842732441}
+  start: {fileID: 3286163911610860551, guid: 0090bdbd3a5add8488ddc9d2f346b210, type: 3}
+  restart: {fileID: 3286163911610860551, guid: ffb7749f200cb3840a66ce9aa1a04179, type: 3}

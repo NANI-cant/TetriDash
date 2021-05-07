@@ -11,10 +11,10 @@ public class CombinationFinder : MonoBehaviour
 
     private void Awake(){
         GameObject _platform = GameObject.FindObjectOfType<PlatformMover>().gameObject;
-        _connecter = _platform.GetComponent<SquaresConnecter>();
-        _lander = _platform.GetComponent<SquaresLander>();
         _destroyer = _platform.GetComponent<CombinationDestroyer>();
         _destroyer.AddNewFinder(this);
+        _connecter = _platform.GetComponent<SquaresConnecter>();
+        _lander = _platform.GetComponent<SquaresLander>();
     }
 
     private void OnDisable(){

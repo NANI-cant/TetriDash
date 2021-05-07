@@ -8,8 +8,8 @@ public class LevelLoader : MonoBehaviour
     private GameInformer _informer;
 
     private void Start(){
-        if(FindObjectOfType<TopLineChecker>()!=null){
-            FindObjectOfType<TopLineChecker>().OnGameFinish += InvokeLoadScene;
+        if(FindObjectOfType<UIActivator>()!=null){
+            FindObjectOfType<UIActivator>().OnGameFinish += InvokeLoadScene;
         }
         _informer = GameInformer.Singleton;
         if(!_informer.IsFirstEnter){

@@ -14,6 +14,7 @@ public class SpawnerFigures : MonoBehaviour
     private void Start()
     {
         FindObjectOfType<TopLineChecker>().OnGameFinish += StopSpawn;
+        FindObjectOfType<UIActivator>().OnGameContinue += StartSpawn;
         _settings = FindObjectOfType<Settings>();
         _settings.OnSpawnTimeChange+=ChangeTimeToSpawn;
         timeBetweenSpawns = _settings.GetSpawnTime();
@@ -45,5 +46,10 @@ public class SpawnerFigures : MonoBehaviour
 
     private void StopSpawn(){
         canSpawn = false;
+    }
+
+    private void StartSpawn(){
+        canSpawn = true;
+        StartCoroutine(Spawner());
     }
 }

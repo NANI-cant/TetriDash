@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(FigureMover))]
+[RequireComponent(typeof(Collider2D))]
 public class AccelerateAbility : MonoBehaviour
 {
     [SerializeField] private float acceleration;
@@ -23,10 +24,12 @@ public class AccelerateAbility : MonoBehaviour
         _destroyer.OnCombinationDestroyStart += AccelerateOff; 
         _destroyer.OnCombinationDestroyEnd += AccelerateOn;
         FindObjectOfType<TopLineChecker>().OnGameFinish+=AccelerateOff;
+        FindObjectOfType<UIActivator>().OnGameContinue+=AccelerateOn;
     }
 
     private void OnDisable(){
         FindObjectOfType<TopLineChecker>().OnGameFinish-=AccelerateOff;
+        FindObjectOfType<UIActivator>().OnGameContinue-=AccelerateOn;
         _destroyer.OnCombinationDestroyStart -= AccelerateOff; 
         _destroyer.OnCombinationDestroyEnd -= AccelerateOn;
     }

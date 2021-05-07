@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(ScoreCounter))]
 public class Settings : MonoBehaviour
 {
     [SerializeField] private AnimationCurve timeToSpawnCurwe;

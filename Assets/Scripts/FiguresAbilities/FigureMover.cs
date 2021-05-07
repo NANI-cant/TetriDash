@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class FigureMover : MonoBehaviour
 {
     public float SpeedOfFigure;
@@ -22,10 +23,12 @@ public class FigureMover : MonoBehaviour
         _destroyer.OnCombinationDestroyStart += MoveOff; 
         _destroyer.OnCombinationDestroyEnd += MoveOn;
         FindObjectOfType<TopLineChecker>().OnGameFinish+=MoveOff;
+        FindObjectOfType<UIActivator>().OnGameContinue+=MoveOn;
     }
 
     private void OnDisable(){
         FindObjectOfType<TopLineChecker>().OnGameFinish-=MoveOff;
+        FindObjectOfType<UIActivator>().OnGameContinue-=MoveOn;
         _destroyer.OnCombinationDestroyStart -= MoveOff; 
         _destroyer.OnCombinationDestroyEnd -= MoveOn;
     }
@@ -34,6 +37,8 @@ public class FigureMover : MonoBehaviour
     {
         if(canMove){
             _rigidbody.velocity = Vector2.down * SpeedOfFigure;
+        }else{
+            _rigidbody.velocity = Vector2.zero;
         }
     }
 

@@ -15,10 +15,12 @@ public class RotateAbility : MonoBehaviour
         _destroyer.OnCombinationDestroyStart += RotateOff; 
         _destroyer.OnCombinationDestroyEnd += RotateOn;
         FindObjectOfType<TopLineChecker>().OnGameFinish+=RotateOff;
+        FindObjectOfType<UIActivator>().OnGameContinue+=RotateOn;
     }
 
     private void OnDisable(){
         FindObjectOfType<TopLineChecker>().OnGameFinish-=RotateOff;
+        FindObjectOfType<UIActivator>().OnGameContinue-=RotateOn;
         _destroyer.OnCombinationDestroyStart -= RotateOff; 
         _destroyer.OnCombinationDestroyEnd -= RotateOn;
     }

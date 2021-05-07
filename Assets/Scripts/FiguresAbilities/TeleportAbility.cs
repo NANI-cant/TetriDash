@@ -28,10 +28,12 @@ public class TeleportAbility : MonoBehaviour
         _destroyer.OnCombinationDestroyStart += TeleportOff; 
         _destroyer.OnCombinationDestroyEnd += TeleportOn;
         FindObjectOfType<TopLineChecker>().OnGameFinish+=TeleportOff;
+        FindObjectOfType<UIActivator>().OnGameContinue+=TeleportOn;
     }
 
     private void OnDisable(){
         FindObjectOfType<TopLineChecker>().OnGameFinish-=TeleportOff;
+        FindObjectOfType<UIActivator>().OnGameContinue-=TeleportOn;
         _destroyer.OnCombinationDestroyStart -= TeleportOff; 
         _destroyer.OnCombinationDestroyEnd -= TeleportOn;
     }
