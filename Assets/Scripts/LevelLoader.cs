@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     private GameInformer _informer;
+    public AdMob adMob;
 
     private void Start(){
         if(FindObjectOfType<UIActivator>()!=null){
@@ -18,6 +19,7 @@ public class LevelLoader : MonoBehaviour
     }
 
     public void LoadScene(){
+        adMob.ShowInterstitialAd();
         _informer.SetEnter(false);
         GetComponent<Animator>().SetTrigger("ExitScene");
     }

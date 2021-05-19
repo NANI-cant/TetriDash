@@ -5,8 +5,10 @@ using UnityEngine;
 public class RewardWindow : MonoBehaviour
 {
     [SerializeField] private UIActivator _ui;
+    public AdMob adMob;
 
     public void ContinueGame(){
+        adMob.ShowVideoAd();
         _ui.ContinueGame();
     }
 
