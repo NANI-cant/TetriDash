@@ -1209,6 +1209,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f289bb16b535115498e817502b72ebb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ui: {fileID: 990477968}
+  interstitialAdIdAndroid: ca-app-pub-3940256099942544/1033173712
+  rewardedAdIdAndroid: ca-app-pub-3940256099942544/5224354917
 --- !u!1 &875611175
 GameObject:
   m_ObjectHideFlags: 0

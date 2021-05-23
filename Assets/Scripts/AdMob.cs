@@ -6,104 +6,71 @@ using GoogleMobileAds.Api;
 
 public class AdMob : MonoBehaviour
 {
+    [SerializeField] UIActivator _ui;
+    [SerializeField] private string interstitialAdIdAndroid = "ca-app-pub-3940256099942544/1033173712";
+    [SerializeField] private string rewardedAdIdAndroid = "ca-app-pub-3940256099942544/5224354917";
     private InterstitialAd interstitialAd;
-    private RewardBasedVideoAd videoAd;
-    private string interstitialAdID,videoAdID;
+    private RewardedAd rewardedAd;
 
     private void Awake(){
         MobileAds.Initialize(initStatus=>{});
-        interstitialAdID = "ca-app-pub-3940256099942544/1033173712";
-        videoAdID = "ca-app-pub-3940256099942544/5224354917";
-        videoAd = RewardBasedVideoAd.Instance;
-        RequestInterstitialAd();
-        RequestVideoAd();
+        RequestInterstitial();
+        RequestRewarded();
     }
 
-    private AdRequest AdRequestBuild(){
-        return new AdRequest.Builder().Build();
+    private void RequestRewarded(){
+        #if UNITY_ANDROID
+            string adUnitId = rewardedAdIdAndroid;
+        #elif UNITY_IPHONE
+            string adUnitId = "ca-app-pub-3940256099942544/1712485313";
+        #else
+            string adUnitId = "unexpected_platform";
+        #endif
+        rewardedAd = new RewardedAd(adUnitId);
+        AdRequest request = new AdRequest.Builder().Build();
+        rewardedAd.LoadAd(request);
+        rewardedAd.OnUserEarnedReward += HandleUserEarnedReward;
     }
 
-    private void RequestInterstitialAd(){
-        interstitialAd = new InterstitialAd(interstitialAdID);
-        AdRequest request = AdRequestBuild();
-        interstitialAd.LoadAd(request);
-
-        interstitialAd.OnAdLoaded += this.HandleOnAdLoaded;
-        interstitialAd.OnAdOpening += this.HandleOnAdOpening;
-        interstitialAd.OnAdClosed += this.HandleOnAdClosed;
-    }
-
-    public void ShowInterstitialAd(){
-        if(interstitialAd.IsLoaded()){
-            interstitialAd.Show();
+    public void TryToShowRewardedAd(){
+        if(rewardedAd.IsLoaded()){
+            rewardedAd.Show();
+        }else{
+            Debug.Log("Rewarded Ad dont load yeat");
         }
     }
 
-    private void OnDestroy(){
-        DestroyInterstitialAd();
-        
-        interstitialAd.OnAdLoaded -= this.HandleOnAdLoaded;
-        interstitialAd.OnAdOpening -= this.HandleOnAdOpening;
-        interstitialAd.OnAdClosed -= this.HandleOnAdClosed;
-
-        videoAd.OnAdLoaded -= this.HandleRewardedAdLoaded;
-        videoAd.OnAdFailedToLoad -= this.HandleRewardedAdFailedToLoad;
-        videoAd.OnAdRewarded -= this.HandleUserEarnedReward;
-        videoAd.OnAdClosed -= this.HandleRewardedAdClosed;
+    public void HandleUserEarnedReward(object sender, Reward args){
+        _ui.ContinueGame();
     }
 
-    private void HandleOnAdClosed(object sender, EventArgs e){
-        interstitialAd.OnAdLoaded -= this.HandleOnAdLoaded;
-        interstitialAd.OnAdOpening -= this.HandleOnAdOpening;
-        interstitialAd.OnAdClosed -= this.HandleOnAdClosed;
-
-        RequestInterstitialAd();
+    private void RequestInterstitial(){
+        #if UNITY_ANDROID
+            string adUnitId = interstitialAdIdAndroid;
+        #elif UNITY_IPHONE
+            string adUnitId = "ca-app-pub-3940256099942544/4411468910";
+        #else
+            string adUnitId = "unexpected_platform";
+        #endif
+        interstitialAd = new InterstitialAd(adUnitId);
+        interstitialAd.OnAdClosed += HandleOnAdClosed;
+        AdRequest request = new AdRequest.Builder().Build();
+        interstitialAd.LoadAd(request);
     }
 
-    private void HandleOnAdOpening(object sender, EventArgs e){
-        
+    public void TryToShowInterstitialAd(){
+        if (interstitialAd.IsLoaded()) {
+            interstitialAd.Show();
+        }else{
+            Debug.Log("Interstitial ad dont load yeat");
+        }
     }
 
-    private void HandleOnAdLoaded(object sender, EventArgs e){
-        
-    }
-
-    private void DestroyInterstitialAd(){
+    public void HandleOnAdClosed(object sender, EventArgs args){
         interstitialAd.Destroy();
     }
 
-    public void RequestVideoAd(){
-        AdRequest request  = AdRequestBuild();
-        videoAd.LoadAd(request, videoAdID);
-        videoAd.OnAdLoaded += this.HandleRewardedAdLoaded;
-        videoAd.OnAdFailedToLoad += this.HandleRewardedAdFailedToLoad;
-        videoAd.OnAdRewarded += this.HandleUserEarnedReward;
-        videoAd.OnAdClosed += this.HandleRewardedAdClosed;
-    }
-
-    private void HandleRewardedAdLoaded(object sender, EventArgs e){
-        ShowVideoAd();
-    }
-
-    private void HandleRewardedAdFailedToLoad(object sender, AdFailedToLoadEventArgs e){
-    }
-
-    private void HandleUserEarnedReward(object sender, Reward e){
-        
-    }
-
-    private void HandleRewardedAdClosed(object sender, EventArgs e)
-    {
-        videoAd.OnAdLoaded -= this.HandleRewardedAdLoaded;
-        videoAd.OnAdFailedToLoad -= this.HandleRewardedAdFailedToLoad;
-        videoAd.OnAdRewarded -= this.HandleUserEarnedReward;
-        videoAd.OnAdClosed -= this.HandleRewardedAdClosed;
-
-    }
-
-    public void ShowVideoAd(){
-        if(videoAd.IsLoaded()){
-            videoAd.Show();
-        }
+    private void OnDisable(){
+        rewardedAd.OnUserEarnedReward-=HandleUserEarnedReward;
     }
 }

@@ -8,8 +8,8 @@ public class RewardWindow : MonoBehaviour
     public AdMob adMob;
 
     public void ContinueGame(){
-        adMob.ShowVideoAd();
-        _ui.ContinueGame();
+        adMob.TryToShowRewardedAd();
+        //_ui.ContinueGame();
     }
 
     public void EndGame(){

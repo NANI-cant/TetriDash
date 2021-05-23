@@ -31,6 +31,8 @@ public class SpawnerFigures : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenSpawns);
         if(canSpawn){
             StartCoroutine(Spawner());
+        }else{
+            StopCoroutine(Spawner());
         }
     }
 

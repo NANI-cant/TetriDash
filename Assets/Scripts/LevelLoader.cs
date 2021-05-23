@@ -19,7 +19,9 @@ public class LevelLoader : MonoBehaviour
     }
 
     public void LoadScene(){
-        adMob.ShowInterstitialAd();
+        if(SceneManager.GetActiveScene().name == "Game"){
+            adMob.TryToShowInterstitialAd();
+        }
         _informer.SetEnter(false);
         GetComponent<Animator>().SetTrigger("ExitScene");
     }
