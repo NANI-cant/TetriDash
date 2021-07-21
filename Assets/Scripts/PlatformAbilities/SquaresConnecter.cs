@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(AudioSource))]
 public class SquaresConnecter : MonoBehaviour
 {
     [SerializeField] private GameObject connectedSquare;
+    [SerializeField] private AudioClip sound;
     private Transform _platform;
     private bool isPlatform;
     public UnityAction OnSquareConnect;
+    private AudioSource _audioSource;
     
     private void Awake(){
         _platform = FindObjectOfType<PlatformMover>().gameObject.transform;
         isPlatform = GetComponent<PlatformMover>()!=null;
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D other){
@@ -36,6 +40,8 @@ public class SquaresConnecter : MonoBehaviour
             currentSquare.transform.localPosition = roundedPosition;
             currentSquare.GetComponent<SpriteRenderer>().color = currentColor;
         }
+        _audioSource.pitch=Random.Range(0.8f,1.2f);
+        _audioSource.PlayOneShot(sound);
         OnSquareConnect?.Invoke();
     }
 }

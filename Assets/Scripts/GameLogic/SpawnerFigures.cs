@@ -10,6 +10,7 @@ public class SpawnerFigures : MonoBehaviour
     [SerializeField] private Transform rightSide;
     private Settings _settings;
     private bool canSpawn = true;
+    private Coroutine spawning = null;
 
     private void Start()
     {
@@ -18,21 +19,19 @@ public class SpawnerFigures : MonoBehaviour
         _settings = FindObjectOfType<Settings>();
         _settings.OnSpawnTimeChange+=ChangeTimeToSpawn;
         timeBetweenSpawns = _settings.GetSpawnTime();
-        StartCoroutine(Spawner());
+        StartSpawn();
     }
 
     private IEnumerator Spawner()
     {
-        float randomX = Random.Range(leftSide.InverseTransformPoint(transform.position).x,rightSide.InverseTransformPoint(transform.position).x);
-        GameObject currentFigure = templates[Random.Range(0, templates.Length)];
-        int randomRotateKoef = Random.Range(0,4);
-        Instantiate(currentFigure, new Vector3(randomX, transform.position.y, 0),Quaternion.Euler(0,0,-90*randomRotateKoef));
-        currentFigure.transform.position = new Vector2(randomX,transform.position.y);
-        yield return new WaitForSeconds(timeBetweenSpawns);
-        if(canSpawn){
-            StartCoroutine(Spawner());
-        }else{
-            StopCoroutine(Spawner());
+        while (canSpawn)
+        {
+            float randomX = Random.Range(leftSide.InverseTransformPoint(transform.position).x,rightSide.InverseTransformPoint(transform.position).x);
+            GameObject currentFigure = templates[Random.Range(0, templates.Length)];
+            int randomRotateKoef = Random.Range(0,4);
+            Instantiate(currentFigure, new Vector3(randomX, transform.position.y, 0),Quaternion.Euler(0,0,-90*randomRotateKoef));
+            currentFigure.transform.position = new Vector2(randomX,transform.position.y);
+            yield return new WaitForSeconds(timeBetweenSpawns);
         }
     }
 
@@ -48,10 +47,11 @@ public class SpawnerFigures : MonoBehaviour
 
     private void StopSpawn(){
         canSpawn = false;
+        StopCoroutine(spawning);
     }
 
     private void StartSpawn(){
         canSpawn = true;
-        StartCoroutine(Spawner());
+        spawning = StartCoroutine(Spawner());
     }
 }
