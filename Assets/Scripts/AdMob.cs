@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.Scripting;
 using GoogleMobileAds.Api;
 
+[Preserve]
 public class AdMob : MonoBehaviour
 {
     [SerializeField] UIActivator _ui;
@@ -41,6 +43,7 @@ public class AdMob : MonoBehaviour
     }
 
     public void HandleUserEarnedReward(object sender, Reward args){
+        Debug.Log("reward! = " + args.Amount.ToString());
         _ui.ContinueGame();
     }
 
