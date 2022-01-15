@@ -25,9 +25,11 @@ public class ScoreCounter : MonoBehaviour
         if(PlayerPrefs.HasKey("BestScore")){
             if(PlayerPrefs.GetFloat("BestScore") < score){
                 PlayerPrefs.SetFloat("BestScore", score);
+                GooglePlayServices.GPSSingleton.AddPointsToLeaderBoard(score);
             }
         }else{
             PlayerPrefs.SetFloat("BestScore", score);
+            GooglePlayServices.GPSSingleton.AddPointsToLeaderBoard(score);
         }
     }
 }
